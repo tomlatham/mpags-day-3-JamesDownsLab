@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "CipherMode.hpp"
 
 // Define a struct to contain the settings
 struct ProgramSettings {
@@ -12,7 +13,7 @@ struct ProgramSettings {
     std::string inputFile;
     std::string outputFile;
     std::string cipher_key;
-    bool encrypt;
+    CipherMode cipherMode;
 };
 
 bool processCommandLine(

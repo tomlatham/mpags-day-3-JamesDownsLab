@@ -8,13 +8,14 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include "CipherMode.hpp"
 
 class CaesarCipher {
     public:
         explicit CaesarCipher(const size_t key);
         explicit CaesarCipher(const std::string& key);
 
-        std::string applyCipher(const std::string& inputText, const bool encrypt) const;
+        std::string applyCipher(const std::string& inputText, const CipherMode cipherMode) const;
 
     private:
         const std::vector<char> alphabet_ = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};

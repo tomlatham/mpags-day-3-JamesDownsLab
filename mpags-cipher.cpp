@@ -8,6 +8,7 @@
 #include "TransformChar.hpp"
 #include "ProcessCommandLine.hpp"
 #include "CaesarCipher.hpp"
+#include "CipherMode.hpp"
 // Main function of the mpags-cipher program
 int main(int argc, char* argv[])
 {
@@ -20,7 +21,7 @@ int main(int argc, char* argv[])
       "",
       "",
       "",
-      true};
+      CipherMode::Encrypt};
 
   // Process command line arguments
   bool cmdLineStatus {processCommandLine(cmdLineArgs, programSettings) };
@@ -96,7 +97,7 @@ int main(int argc, char* argv[])
 
   // implement the caesar cipher
   CaesarCipher caesarCipher {programSettings.cipher_key};
-  std::string outputText {caesarCipher.applyCipher(inputText, programSettings.encrypt)};
+  std::string outputText {caesarCipher.applyCipher(inputText, programSettings.cipherMode)};
 
   // Output the transliterated text
   if (!programSettings.outputFile.empty()) {

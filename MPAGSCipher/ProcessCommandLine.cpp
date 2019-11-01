@@ -72,10 +72,10 @@ bool processCommandLine(
       }
     }
     else if ( args[i] == "--encrypt" ) {
-        programSettings.encrypt = true;
+        programSettings.cipherMode = CipherMode::Encrypt;
     }
     else if ( args[i] == "--decrypt" ) {
-        programSettings.encrypt = false;
+        programSettings.cipherMode = CipherMode ::Decrypt;
     }
     else {
       // Have encoutered an unknown flag, output an error message, set the flag
