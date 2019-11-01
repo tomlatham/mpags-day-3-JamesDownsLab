@@ -23,7 +23,7 @@ CaesarCipher::CaesarCipher(const std::string& key): key_{0} {
         }
 }
 
-std::string CaesarCipher::applyCipher(const std::string &inputText, const bool encrypt)
+std::string CaesarCipher::applyCipher(const std::string &inputText, const bool encrypt) const
 {
     // Create the output string
     std::string outputText {};
@@ -37,18 +37,18 @@ std::string CaesarCipher::applyCipher(const std::string &inputText, const bool e
     for ( const auto& origChar : inputText ) {
 
         // For each character in the input text, find the corresponding position in
-        // the alphabet by using an indexed loop over the alphabet container
+        // the alphabet_ by using an indexed loop over the alphabet_ container
         for ( size_t i{0}; i < alphabetSize_; ++i ) {
 
-            if ( origChar == alphabet[i] ) {
+            if (origChar == alphabet_[i] ) {
 
                 // Apply the appropriate shift (depending on whether we're encrypting
                 // or decrypting) and determine the new character
-                // Can then break out of the loop over the alphabet
+                // Can then break out of the loop over the alphabet_
                 if ( encrypt ) {
-                    processedChar = alphabet[ (i + truncatedKey) % alphabetSize_ ];
+                    processedChar = alphabet_[(i + truncatedKey) % alphabetSize_ ];
                 } else {
-                    processedChar = alphabet[ (i + alphabetSize_ - truncatedKey) % alphabetSize_ ];
+                    processedChar = alphabet_[(i + alphabetSize_ - truncatedKey) % alphabetSize_ ];
                 }
                 break;
             }
