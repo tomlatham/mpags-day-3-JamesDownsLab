@@ -21,7 +21,7 @@ add_subdirectory(MPAGSCipher)
 
 # - Enable testing and add the Testing subdirectory to the build
 enable_testing()
-add_subdirectory(testing)
+add_subdirectory(Testing)
 
 # - Declare the build of mpags-cipher main program
 add_executable(mpags-cipher
