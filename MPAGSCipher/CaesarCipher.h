@@ -6,10 +6,13 @@
 #define MPAGSCIPHER_CAESARCIPHER_H
 
 #include <vector>
+#include <string>
+#include <iostream>
 
 class CaesarCipher {
     public:
-        CaesarCipher(const size_t key);
+        explicit CaesarCipher(const size_t key);
+        explicit CaesarCipher(const std::string& key);
 
         size_t key_;
 };
