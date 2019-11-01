@@ -75,7 +75,7 @@ bool processCommandLine(
         programSettings.cipherMode = CipherMode::Encrypt;
     }
     else if ( args[i] == "--decrypt" ) {
-        programSettings.cipherMode = CipherMode ::Decrypt;
+        programSettings.cipherMode = CipherMode::Decrypt;
     }
     else {
       // Have encoutered an unknown flag, output an error message, set the flag
