@@ -26,7 +26,7 @@ add_executable(mpags-cipher
   MPAGSCipher/ProcessCommandLine.hpp
   MPAGSCipher/RunCaesarCipher.cpp
   MPAGSCipher/RunCaesarCipher.hpp
-  )
+        MPAGSCipher/CaesarCipher.cpp MPAGSCipher/CaesarCipher.h)
 
 target_include_directories(mpags-cipher
   PRIVATE MPAGSCipher
