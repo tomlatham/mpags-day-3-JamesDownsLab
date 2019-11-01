@@ -8,7 +8,6 @@
 #include "TransformChar.hpp"
 #include "ProcessCommandLine.hpp"
 #include "RunCaesarCipher.hpp"
-  
 // Main function of the mpags-cipher program
 int main(int argc, char* argv[])
 {
@@ -86,9 +85,12 @@ int main(int argc, char* argv[])
 
     // Loop over each character from user input
     // (until Return then CTRL-D (EOF) pressed)
-    while(std::cin >> inputChar)
+    std::string typedText{};
+    std::getline(std::cin, typedText);
+
+    for(char i: typedText)
     {
-      inputText += transformChar(inputChar);
+      inputText += transformChar(i);
     }
   }
 
