@@ -13,7 +13,8 @@ TEST_CASE("Help is returned", "[commandline]"){
             "",
             CipherMode::Encrypt};
     std::vector<std::string> args {"MpagsCipher", "-h"};
-    processCommandLine(args, programSettings);
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE(res);
     REQUIRE(programSettings.helpRequested == true);
 }
 
@@ -26,7 +27,8 @@ TEST_CASE("Version no is returned", "[commandline]"){
             "",
             CipherMode::Encrypt};
     std::vector<std::string> args {"MpagsCipher", "--version"};
-    processCommandLine(args, programSettings);
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE(res);
     REQUIRE(programSettings.versionRequested == true);
 }
 
@@ -39,7 +41,8 @@ TEST_CASE("Input file is returned correctly", "[commandline]"){
             "",
             CipherMode::Encrypt};
     std::vector<std::string> args {"MpagsCipher", "-i", "test_input.txt"};
-    processCommandLine(args, programSettings);
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE(res);
     REQUIRE(programSettings.inputFile == "test_input.txt");
 }
 
@@ -52,7 +55,8 @@ TEST_CASE("Output file is returned correctly", "[commandline]") {
             "",
             CipherMode::Encrypt};
     std::vector<std::string> args{"MpagsCipher", "-o", "test_output.txt"};
-    processCommandLine(args, programSettings);
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE(res);
     REQUIRE(programSettings.outputFile == "test_output.txt");
 }
 
@@ -65,7 +69,8 @@ TEST_CASE("Cipher key is parsed correctly", "[commandline]"){
             "",
             CipherMode::Encrypt};
     std::vector<std::string> args{"MpagsCipher", "-k", "15"};
-    processCommandLine(args, programSettings);
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE(res);
     REQUIRE(programSettings.cipher_key == "15");
 }
 
@@ -78,6 +83,21 @@ TEST_CASE("Cipher mode is parsed correctly", "[commandline]"){
             "",
             CipherMode::Encrypt};
     std::vector<std::string> args{"MpagsCipher", "--decrypt"};
-    processCommandLine(args, programSettings);
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE(res);
     REQUIRE(programSettings.cipherMode == CipherMode::Decrypt);
+}
+
+// An example of a case where you check that errors are correctly identified
+TEST_CASE("Key option entered with no key specified"){
+    ProgramSettings programSettings{
+            false,
+            false,
+            "",
+            "",
+            "",
+            CipherMode::Encrypt};
+    std::vector<std::string> args{"MpagsCipher", "-k"};
+    bool res { processCommandLine(args, programSettings) };
+    REQUIRE( !res );
 }

@@ -7,7 +7,6 @@
 
 #include <vector>
 #include <string>
-#include <iostream>
 #include "CipherMode.hpp"
 
 class CaesarCipher {
@@ -19,7 +18,7 @@ class CaesarCipher {
 
     private:
         const std::vector<char> alphabet_ = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        const size_t alphabetSize_ = alphabet_.size();
+        const size_t alphabetSize_ { alphabet_.size() };
         size_t key_;
 };
 

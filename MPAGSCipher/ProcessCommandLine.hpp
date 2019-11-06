@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include <iostream>
+
 #include "CipherMode.hpp"
 
 // Define a struct to contain the settings

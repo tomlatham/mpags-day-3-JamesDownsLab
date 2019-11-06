@@ -1,12 +1,16 @@
 // Our project headers
 #include "ProcessCommandLine.hpp"
 
+#include <iostream>
+#include <string>
+#include <vector>
+
 bool processCommandLine(
         const std::vector<std::string>& args,
         ProgramSettings& programSettings)
 {
   // Status flag to indicate whether or not the parsing was successful
-  bool processStatus(true);
+  bool processStatus{true};
 
   // Add a typedef that assigns another name for the given type for clarity
   typedef std::vector<std::string>::size_type size_type;

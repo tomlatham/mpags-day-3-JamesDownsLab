@@ -4,6 +4,9 @@
 
 #include "CaesarCipher.hpp"
 
+#include <iostream>
+#include <string>
+#include <vector>
 
 CaesarCipher::CaesarCipher(const size_t key): key_{key} {}
 
@@ -19,7 +22,7 @@ CaesarCipher::CaesarCipher(const std::string& key): key_{0} {
             key_ = std::stoul(key);
         }
         else{
-            std::cout << "String cannot be parsed as integer" << std::endl;
+            std::cerr << "[error] problem converting Caesar cipher key, string cannot be parsed as integer, key will default to " << key_ << std::endl;
         }
 }
 
